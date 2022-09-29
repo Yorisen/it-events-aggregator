@@ -1,0 +1,13 @@
+spring:
+  main.allow-circular-references: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/db.changelog-master-test.xml
+
+amqp:
+  request:
+    queue: 'it-events'
+    exchange: 'it-events-response-exchange'
+    routing-key: 'it.events'

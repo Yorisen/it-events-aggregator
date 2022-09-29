@@ -1,0 +1,246 @@
+body {
+    font-family: sans-serif;
+    background-color: #fdfdfd;
+    min-height: 100vh;
+    position: relative;
+}
+::selection {
+  background-color: #87b36a;
+  color: #fff;
+}
+
+.header {
+    position: relative;
+}
+.header .header__title {
+    text-align: left;
+    font-weight: normal;
+    font-size: 2em;
+    color: #666;
+    margin: 37px 10% 24px;
+    padding-left: 58px;
+}
+.header .header__buttons {
+    position: absolute;
+    top: 1px;
+    right: 0;
+    margin: 0 10%;
+}
+
+
+.wrapper {
+    padding: 0 10%;
+}
+
+
+.logo {
+    position: absolute;
+    top: -14px;
+    left: -2px;
+    z-index: 1;
+    margin-left: 10%;
+    color: #87B36A;
+    font-size: 3em;
+    font-weight: bold;
+}
+.logo .logo__link {
+    display: block;
+}
+
+
+.link {
+    color: #87b36a;
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 1px solid;
+}
+.link:hover {
+    color: #769d5d;
+}
+.link:focus {
+    outline: thin dotted #87b36a;
+    outline-offset: 4px;
+    border-radius: 1px;
+}
+
+.link_pseudo {
+    border-bottom: 1px dotted #666;
+    color: #666;
+    cursor: pointer;
+}
+.link_pseudo:hover {
+    border-bottom: 1px dotted #333;
+    color: #333;
+}
+
+.link_margin-left {
+    margin-left: 5px;
+}
+.link_no-underline {
+    border-bottom: 0;
+}
+
+
+.grid {
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+.grid .grid__header {
+  height: 60px;
+  background: #87b36a;
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.2;
+  font-weight: unset;
+}
+.grid .grid__body {
+  height: 50px;
+  font-size: 15px;
+  color: #808080;
+  line-height: 1.2;
+  font-weight: unset;
+}
+.grid .grid__body:nth-child(2n) {
+  background-color: #f5f5f5;
+}
+
+.grid .grid__row .grid__col {
+    padding: 0 50px;
+}
+.grid .grid__row .grid__col_highlight {
+    color: #87b36a;
+}
+.grid .grid__row .grid__col_first {
+    padding: 0 0 0 40px;
+    width: 98px;
+}
+.grid .grid__row .grid__col_last {
+    width: 122px;
+    padding: 0 40px 0 0;
+}
+.grid .grid__row .grid__col_text-right {
+    text-align: right;
+}
+
+
+
+
+
+.button {
+    background-color: #87b36a;
+    color: #f5f5f5;
+    border: 0;
+    padding: 6px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: #96c477;
+}
+
+.popup {
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    position: absolute;
+}
+.popup_hide {
+    display: none;
+}
+
+.popup .popup__window {
+    background: #fff;
+    z-index: 15;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 754px;
+    margin-left: -418px;
+    margin-top: -19%;
+    border: 1px solid #87b36a;
+    padding: 20px 40px 40px;
+    border-radius: 12px;
+    color: #333;
+}
+
+.popup_event {
+    z-index: 30;
+}
+
+.popup_speaker {
+    z-index: 45;
+}
+
+.popup .popup__button {
+    position: absolute;
+    right: 9px;
+    top: 5px;
+    font-size: 1.8em;
+    color: #87b36a;
+    cursor: pointer;
+}
+.popup .popup__button:hover {
+    color: #769d5d;
+}
+.popup .popup__title {
+    font-size: 1.2em;
+    padding-bottom: 18px;
+}
+.popup .popup__description {
+    padding-bottom: 10px;
+}
+
+.list .list__item {
+    border-bottom: 1px solid #ddd;
+    margin: 0 5%;
+    padding: 10px 0;
+}
+.list .list__item .list__item-content {
+    vertical-align: top;
+}
+
+.list_with-aside .list__item .list__item-content {
+    display: inline-block;
+    width: 70%;
+}
+.list_with-aside .list__item .list__item-aside {
+    display: inline-block;
+    vertical-align: top;
+    width: 27%;
+    padding-left: 3%;
+}
+.list_with-aside .list__item .list__item-aside .list__item-aside-part {
+    display: inline-block;
+}
+
+.description .description__term {
+    font-size: 20px;
+    color: #666;
+    display: inline-block;
+}
+
+.description .description__details {
+    margin: 15px 0 0;
+}
+.description .description__details_collapse {
+    position: relative;
+    cursor: pointer;
+    height: 18px;
+}
+.description .description__details_collapse .description__details-text {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: absolute;
+}
+.description .description__details_expand {
+     height: auto;
+ }
+

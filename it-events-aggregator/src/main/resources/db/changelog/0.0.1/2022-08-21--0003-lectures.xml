@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+		http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.5.0.xsd">
+    <changeSet id="3" author="LemyakinDV">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="lectures"/>
+            </not>
+        </preConditions>
+        <createTable tableName="lectures">
+            <column name="id" type="bigint" autoIncrement="true" incrementBy="1">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="theme" type="varchar(4000)"/>
+            <column name="event_id" type="bigint">
+                <constraints nullable="false"
+                             foreignKeyName="fk_lectures_events"
+                             references="events(id)"
+                             deleteCascade="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

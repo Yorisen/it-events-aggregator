@@ -1,0 +1,57 @@
+services:
+  it-events-aggregator:
+    build:
+      context: ./it-events-aggregator
+      dockerfile: Dockerfile
+    privileged: true
+    image: it-events-aggregator:latest
+    ports:
+      - "80:8080"
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/db
+    depends_on:
+      - "postgres"
+      - "rabbitmq"
+    networks:
+      - aggregator
+
+  yandex-website-parser:
+    build:
+      context: ./yandex-website-parser
+      dockerfile: Dockerfile
+    privileged: true
+    image: yandex-website-parser:latest
+    ports:
+      - "8081:8081"
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+    depends_on:
+      - "rabbitmq"
+    networks:
+      - aggregator
+      
+  rabbitmq:
+    image: "rabbitmq:3.10.7-management-alpine"
+    ports:
+      - "5672:5672"
+      - "15671:15671"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+    networks:
+      - aggregator
+      
+  postgres:
+    image: "postgres:14.4-alpine"
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=db
+    networks:
+      - aggregator
+networks:
+  aggregator:

@@ -1,0 +1,21 @@
+spring:
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:admin}
+    password: ${RABBITMQ_PASSWORD:admin}
+
+amqp:
+  request:
+    queue: 'yandex-it-events'
+    exchange: 'it-events-requests-exchange'
+
+  response:
+    routing-key: 'it.events'
+    exchange: 'it-events-response-exchange'
+
+browser:
+  url: 'https://events.yandex.ru'
+  agent: 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
+  connection:
+    timeout: 5000
